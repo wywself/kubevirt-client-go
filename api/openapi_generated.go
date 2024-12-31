@@ -315,6 +315,7 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		"kubevirt.io/api/core/v1.ArchSpecificConfiguration":                                          schema_kubevirtio_api_core_v1_ArchSpecificConfiguration(ref),
 		"kubevirt.io/api/core/v1.AuthorizedKeysFile":                                                 schema_kubevirtio_api_core_v1_AuthorizedKeysFile(ref),
 		"kubevirt.io/api/core/v1.BIOS":                                                               schema_kubevirtio_api_core_v1_BIOS(ref),
+		"kubevirt.io/api/core/v1.BackupVolumeSource":                                                 schema_kubevirtio_api_core_v1_BackupVolumeSource(ref),
 		"kubevirt.io/api/core/v1.BitmapVolumeSource":                                                 schema_kubevirtio_api_core_v1_BitmapVolumeSource(ref),
 		"kubevirt.io/api/core/v1.BlockSize":                                                          schema_kubevirtio_api_core_v1_BlockSize(ref),
 		"kubevirt.io/api/core/v1.Bootloader":                                                         schema_kubevirtio_api_core_v1_Bootloader(ref),
@@ -15774,6 +15775,41 @@ func schema_kubevirtio_api_core_v1_BIOS(ref common.ReferenceCallback) common.Ope
 	}
 }
 
+func schema_kubevirtio_api_core_v1_BackupVolumeSource(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"claimName": {
+						SchemaProps: spec.SchemaProps{
+							Description: "claimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"readOnly": {
+						SchemaProps: spec.SchemaProps{
+							Description: "readOnly Will force the ReadOnly setting in VolumeMounts. Default false.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+					"hotpluggable": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Hotpluggable indicates whether the volume can be hotplugged and hotunplugged.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+				},
+				Required: []string{"claimName"},
+			},
+		},
+	}
+}
+
 func schema_kubevirtio_api_core_v1_BitmapVolumeSource(ref common.ReferenceCallback) common.OpenAPIDefinition {
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
@@ -18355,11 +18391,17 @@ func schema_kubevirtio_api_core_v1_HotplugVolumeSource(ref common.ReferenceCallb
 							Ref:         ref("kubevirt.io/api/core/v1.BitmapVolumeSource"),
 						},
 					},
+					"backupVolume": {
+						SchemaProps: spec.SchemaProps{
+							Description: "the same to bitmapSource, But used to restore backup disk",
+							Ref:         ref("kubevirt.io/api/core/v1.BackupVolumeSource"),
+						},
+					},
 				},
 			},
 		},
 		Dependencies: []string{
-			"kubevirt.io/api/core/v1.BitmapVolumeSource", "kubevirt.io/api/core/v1.DataVolumeSource", "kubevirt.io/api/core/v1.PersistentVolumeClaimVolumeSource"},
+			"kubevirt.io/api/core/v1.BackupVolumeSource", "kubevirt.io/api/core/v1.BitmapVolumeSource", "kubevirt.io/api/core/v1.DataVolumeSource", "kubevirt.io/api/core/v1.PersistentVolumeClaimVolumeSource"},
 	}
 }
 
@@ -25248,12 +25290,18 @@ func schema_kubevirtio_api_core_v1_Volume(ref common.ReferenceCallback) common.O
 							Ref:         ref("kubevirt.io/api/core/v1.BitmapVolumeSource"),
 						},
 					},
+					"backupVolume": {
+						SchemaProps: spec.SchemaProps{
+							Description: "BackupVolume is attached to the virt launcher and is populated with backup disk of the vmi",
+							Ref:         ref("kubevirt.io/api/core/v1.BackupVolumeSource"),
+						},
+					},
 				},
 				Required: []string{"name"},
 			},
 		},
 		Dependencies: []string{
-			"kubevirt.io/api/core/v1.BitmapVolumeSource", "kubevirt.io/api/core/v1.CloudInitConfigDriveSource", "kubevirt.io/api/core/v1.CloudInitNoCloudSource", "kubevirt.io/api/core/v1.ConfigMapVolumeSource", "kubevirt.io/api/core/v1.ContainerDiskSource", "kubevirt.io/api/core/v1.DataVolumeSource", "kubevirt.io/api/core/v1.DownwardAPIVolumeSource", "kubevirt.io/api/core/v1.DownwardMetricsVolumeSource", "kubevirt.io/api/core/v1.EmptyDiskSource", "kubevirt.io/api/core/v1.EphemeralVolumeSource", "kubevirt.io/api/core/v1.HostDisk", "kubevirt.io/api/core/v1.MemoryDumpVolumeSource", "kubevirt.io/api/core/v1.PersistentVolumeClaimVolumeSource", "kubevirt.io/api/core/v1.SecretVolumeSource", "kubevirt.io/api/core/v1.ServiceAccountVolumeSource", "kubevirt.io/api/core/v1.SysprepSource"},
+			"kubevirt.io/api/core/v1.BackupVolumeSource", "kubevirt.io/api/core/v1.BitmapVolumeSource", "kubevirt.io/api/core/v1.CloudInitConfigDriveSource", "kubevirt.io/api/core/v1.CloudInitNoCloudSource", "kubevirt.io/api/core/v1.ConfigMapVolumeSource", "kubevirt.io/api/core/v1.ContainerDiskSource", "kubevirt.io/api/core/v1.DataVolumeSource", "kubevirt.io/api/core/v1.DownwardAPIVolumeSource", "kubevirt.io/api/core/v1.DownwardMetricsVolumeSource", "kubevirt.io/api/core/v1.EmptyDiskSource", "kubevirt.io/api/core/v1.EphemeralVolumeSource", "kubevirt.io/api/core/v1.HostDisk", "kubevirt.io/api/core/v1.MemoryDumpVolumeSource", "kubevirt.io/api/core/v1.PersistentVolumeClaimVolumeSource", "kubevirt.io/api/core/v1.SecretVolumeSource", "kubevirt.io/api/core/v1.ServiceAccountVolumeSource", "kubevirt.io/api/core/v1.SysprepSource"},
 	}
 }
 
@@ -25396,11 +25444,17 @@ func schema_kubevirtio_api_core_v1_VolumeSource(ref common.ReferenceCallback) co
 							Ref:         ref("kubevirt.io/api/core/v1.BitmapVolumeSource"),
 						},
 					},
+					"backupVolume": {
+						SchemaProps: spec.SchemaProps{
+							Description: "BackupVolume is attached to the virt launcher and is populated with backup disk of the vmi",
+							Ref:         ref("kubevirt.io/api/core/v1.BackupVolumeSource"),
+						},
+					},
 				},
 			},
 		},
 		Dependencies: []string{
-			"kubevirt.io/api/core/v1.BitmapVolumeSource", "kubevirt.io/api/core/v1.CloudInitConfigDriveSource", "kubevirt.io/api/core/v1.CloudInitNoCloudSource", "kubevirt.io/api/core/v1.ConfigMapVolumeSource", "kubevirt.io/api/core/v1.ContainerDiskSource", "kubevirt.io/api/core/v1.DataVolumeSource", "kubevirt.io/api/core/v1.DownwardAPIVolumeSource", "kubevirt.io/api/core/v1.DownwardMetricsVolumeSource", "kubevirt.io/api/core/v1.EmptyDiskSource", "kubevirt.io/api/core/v1.EphemeralVolumeSource", "kubevirt.io/api/core/v1.HostDisk", "kubevirt.io/api/core/v1.MemoryDumpVolumeSource", "kubevirt.io/api/core/v1.PersistentVolumeClaimVolumeSource", "kubevirt.io/api/core/v1.SecretVolumeSource", "kubevirt.io/api/core/v1.ServiceAccountVolumeSource", "kubevirt.io/api/core/v1.SysprepSource"},
+			"kubevirt.io/api/core/v1.BackupVolumeSource", "kubevirt.io/api/core/v1.BitmapVolumeSource", "kubevirt.io/api/core/v1.CloudInitConfigDriveSource", "kubevirt.io/api/core/v1.CloudInitNoCloudSource", "kubevirt.io/api/core/v1.ConfigMapVolumeSource", "kubevirt.io/api/core/v1.ContainerDiskSource", "kubevirt.io/api/core/v1.DataVolumeSource", "kubevirt.io/api/core/v1.DownwardAPIVolumeSource", "kubevirt.io/api/core/v1.DownwardMetricsVolumeSource", "kubevirt.io/api/core/v1.EmptyDiskSource", "kubevirt.io/api/core/v1.EphemeralVolumeSource", "kubevirt.io/api/core/v1.HostDisk", "kubevirt.io/api/core/v1.MemoryDumpVolumeSource", "kubevirt.io/api/core/v1.PersistentVolumeClaimVolumeSource", "kubevirt.io/api/core/v1.SecretVolumeSource", "kubevirt.io/api/core/v1.ServiceAccountVolumeSource", "kubevirt.io/api/core/v1.SysprepSource"},
 	}
 }
 
