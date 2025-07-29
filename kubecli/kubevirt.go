@@ -266,6 +266,8 @@ type VirtualMachineInstanceInterface interface {
 	FilesystemList(ctx context.Context, name string) (v1.VirtualMachineInstanceFileSystemList, error)
 	AddVolume(ctx context.Context, name string, addVolumeOptions *v1.AddVolumeOptions) error
 	RemoveVolume(ctx context.Context, name string, removeVolumeOptions *v1.RemoveVolumeOptions) error
+	AddHostDevice(ctx context.Context, name string, addHostDeviceOptions *v1.AddHostDeviceOptions) error
+	RemoveHostDevice(ctx context.Context, name string, removeHostDeviceOptions *v1.RemoveHostDeviceOptions) error
 	VSOCK(name string, options *v1.VSOCKOptions) (StreamInterface, error)
 	SEVFetchCertChain(name string) (v1.SEVPlatformInfo, error)
 	SEVQueryLaunchMeasurement(name string) (v1.SEVMeasurementInfo, error)
@@ -315,6 +317,8 @@ type VirtualMachineInterface interface {
 	Migrate(ctx context.Context, name string, migrateOptions *v1.MigrateOptions) error
 	AddVolume(ctx context.Context, name string, addVolumeOptions *v1.AddVolumeOptions) error
 	RemoveVolume(ctx context.Context, name string, removeVolumeOptions *v1.RemoveVolumeOptions) error
+	AddHostDevice(ctx context.Context, name string, addHostDeviceOptions *v1.AddHostDeviceOptions) error
+	RemoveHostDevice(ctx context.Context, name string, removeHostDeviceOptions *v1.RemoveHostDeviceOptions) error
 	PortForward(name string, port int, protocol string) (StreamInterface, error)
 	MemoryDump(ctx context.Context, name string, memoryDumpRequest *v1.VirtualMachineMemoryDumpRequest) error
 	RemoveMemoryDump(ctx context.Context, name string) error

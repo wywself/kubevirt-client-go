@@ -493,6 +493,30 @@ func (v *vmis) RemoveVolume(ctx context.Context, name string, removeVolumeOption
 	return v.restClient.Put().AbsPath(uri).Body([]byte(JSON)).Do(ctx).Error()
 }
 
+func (v *vmis) AddHostDevice(ctx context.Context, name string, addHostDeviceOptions *v1.AddHostDeviceOptions) error {
+	uri := fmt.Sprintf(vmiSubresourceURL, v1.ApiStorageVersion, v.namespace, name, "addhostdevice")
+
+	JSON, err := json.Marshal(addHostDeviceOptions)
+
+	if err != nil {
+		return err
+	}
+
+	return v.restClient.Put().AbsPath(uri).Body([]byte(JSON)).Do(ctx).Error()
+}
+
+func (v *vmis) RemoveHostDevice(ctx context.Context, name string, removeHostDeviceOptions *v1.RemoveHostDeviceOptions) error {
+	uri := fmt.Sprintf(vmiSubresourceURL, v1.ApiStorageVersion, v.namespace, name, "removehostdevice")
+
+	JSON, err := json.Marshal(removeHostDeviceOptions)
+
+	if err != nil {
+		return err
+	}
+
+	return v.restClient.Put().AbsPath(uri).Body([]byte(JSON)).Do(ctx).Error()
+}
+
 func (v *vmis) VSOCK(name string, options *v1.VSOCKOptions) (StreamInterface, error) {
 	if options == nil || options.TargetPort == 0 {
 		return nil, fmt.Errorf("target port is required but not provided")

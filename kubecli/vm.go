@@ -282,6 +282,30 @@ func (v *vm) RemoveVolume(ctx context.Context, name string, removeVolumeOptions 
 	return v.restClient.Put().AbsPath(uri).Body([]byte(JSON)).Do(ctx).Error()
 }
 
+func (v *vm) AddHostDevice(ctx context.Context, name string, addHostDeviceOptions *v1.AddHostDeviceOptions) error {
+	uri := fmt.Sprintf(vmSubresourceURLFmt, v1.ApiStorageVersion, v.namespace, name, "addhostdevice")
+
+	JSON, err := json.Marshal(addHostDeviceOptions)
+
+	if err != nil {
+		return err
+	}
+
+	return v.restClient.Put().AbsPath(uri).Body([]byte(JSON)).Do(ctx).Error()
+}
+
+func (v *vm) RemoveHostDevice(ctx context.Context, name string, removeHostDeviceOptions *v1.RemoveHostDeviceOptions) error {
+	uri := fmt.Sprintf(vmSubresourceURLFmt, v1.ApiStorageVersion, v.namespace, name, "removehostdevice")
+
+	JSON, err := json.Marshal(removeHostDeviceOptions)
+
+	if err != nil {
+		return err
+	}
+
+	return v.restClient.Put().AbsPath(uri).Body([]byte(JSON)).Do(ctx).Error()
+}
+
 func (v *vm) PortForward(name string, port int, protocol string) (StreamInterface, error) {
 	return asyncSubresourceHelper(v.config, v.resource, v.namespace, name, buildPortForwardResourcePath(port, protocol), url.Values{})
 }

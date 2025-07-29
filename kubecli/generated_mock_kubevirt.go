@@ -1267,6 +1267,26 @@ func (_mr *_MockVirtualMachineInstanceInterfaceRecorder) RemoveVolume(arg0, arg1
 	return _mr.mock.ctrl.RecordCall(_mr.mock, "RemoveVolume", arg0, arg1, arg2)
 }
 
+func (_m *MockVirtualMachineInstanceInterface) AddHostDevice(ctx context.Context, name string, addHostDeviceOptions *v120.AddHostDeviceOptions) error {
+	ret := _m.ctrl.Call(_m, "AddHostDevice", ctx, name, addHostDeviceOptions)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+func (_mr *_MockVirtualMachineInstanceInterfaceRecorder) AddHostDevice(arg0, arg1, arg2 interface{}) *gomock.Call {
+	return _mr.mock.ctrl.RecordCall(_mr.mock, "AddHostDevice", arg0, arg1, arg2)
+}
+
+func (_m *MockVirtualMachineInstanceInterface) RemoveHostDevice(ctx context.Context, name string, removeHostDeviceOptions *v120.RemoveHostDeviceOptions) error {
+	ret := _m.ctrl.Call(_m, "RemoveHostDevice", ctx, name, removeHostDeviceOptions)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+func (_mr *_MockVirtualMachineInstanceInterfaceRecorder) RemoveHostDevice(arg0, arg1, arg2 interface{}) *gomock.Call {
+	return _mr.mock.ctrl.RecordCall(_mr.mock, "RemoveHostDevice", arg0, arg1, arg2)
+}
+
 func (_m *MockVirtualMachineInstanceInterface) VSOCK(name string, options *v120.VSOCKOptions) (StreamInterface, error) {
 	ret := _m.ctrl.Call(_m, "VSOCK", name, options)
 	ret0, _ := ret[0].(StreamInterface)
@@ -1748,6 +1768,26 @@ func (_m *MockVirtualMachineInterface) RemoveVolume(ctx context.Context, name st
 
 func (_mr *_MockVirtualMachineInterfaceRecorder) RemoveVolume(arg0, arg1, arg2 interface{}) *gomock.Call {
 	return _mr.mock.ctrl.RecordCall(_mr.mock, "RemoveVolume", arg0, arg1, arg2)
+}
+
+func (_m *MockVirtualMachineInterface) AddHostDevice(ctx context.Context, name string, addHostDeviceOptions *v120.AddHostDeviceOptions) error {
+	ret := _m.ctrl.Call(_m, "AddHostDevice", ctx, name, addHostDeviceOptions)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+func (_mr *_MockVirtualMachineInterfaceRecorder) AddHostDevice(arg0, arg1, arg2 interface{}) *gomock.Call {
+	return _mr.mock.ctrl.RecordCall(_mr.mock, "AddHostDevice", arg0, arg1, arg2)
+}
+
+func (_m *MockVirtualMachineInterface) RemoveHostDevice(ctx context.Context, name string, removeHostDeviceOptions *v120.RemoveHostDeviceOptions) error {
+	ret := _m.ctrl.Call(_m, "RemoveHostDevice", ctx, name, removeHostDeviceOptions)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+func (_mr *_MockVirtualMachineInterfaceRecorder) RemoveHostDevice(arg0, arg1, arg2 interface{}) *gomock.Call {
+	return _mr.mock.ctrl.RecordCall(_mr.mock, "RemoveHostDevice", arg0, arg1, arg2)
 }
 
 func (_m *MockVirtualMachineInterface) PortForward(name string, port int, protocol string) (StreamInterface, error) {

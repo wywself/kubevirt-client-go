@@ -16293,6 +16293,26 @@ func schema_kubevirtio_api_core_v1_CloudInitConfigDriveSource(ref common.Referen
 							Format:      "",
 						},
 					},
+					"metaData": {
+						SchemaProps: spec.SchemaProps{
+							Description: "MetaData contains config drive inline cloud-init metadata.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"metaDataBase64": {
+						SchemaProps: spec.SchemaProps{
+							Description: "MetaDataBase64 contains config drive cloud-init metadata as a base64 encoded string.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"metaDataSecretRef": {
+						SchemaProps: spec.SchemaProps{
+							Description: "MetaDataSecretRef references a k8s secret that contains config drive metadata.",
+							Ref:         ref("k8s.io/api/core/v1.LocalObjectReference"),
+						},
+					},
 				},
 			},
 		},
@@ -22460,8 +22480,22 @@ func schema_kubevirtio_api_core_v1_USBSelector(ref common.ReferenceCallback) com
 							Format:  "",
 						},
 					},
+					"busNumber": {
+						SchemaProps: spec.SchemaProps{
+							Default: "",
+							Type:    []string{"string"},
+							Format:  "",
+						},
+					},
+					"deviceNumber": {
+						SchemaProps: spec.SchemaProps{
+							Default: "",
+							Type:    []string{"string"},
+							Format:  "",
+						},
+					},
 				},
-				Required: []string{"vendor", "product"},
+				Required: []string{"vendor", "product", "busNumber", "deviceNumber"},
 			},
 		},
 	}
