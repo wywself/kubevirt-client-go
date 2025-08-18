@@ -310,6 +310,7 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		"kubevirt.io/api/core/v1.ACPI":                                                               schema_kubevirtio_api_core_v1_ACPI(ref),
 		"kubevirt.io/api/core/v1.AccessCredential":                                                   schema_kubevirtio_api_core_v1_AccessCredential(ref),
 		"kubevirt.io/api/core/v1.AccessCredentialSecretSource":                                       schema_kubevirtio_api_core_v1_AccessCredentialSecretSource(ref),
+		"kubevirt.io/api/core/v1.AddHostDeviceOptions":                                               schema_kubevirtio_api_core_v1_AddHostDeviceOptions(ref),
 		"kubevirt.io/api/core/v1.AddVolumeOptions":                                                   schema_kubevirtio_api_core_v1_AddVolumeOptions(ref),
 		"kubevirt.io/api/core/v1.ArchConfiguration":                                                  schema_kubevirtio_api_core_v1_ArchConfiguration(ref),
 		"kubevirt.io/api/core/v1.ArchSpecificConfiguration":                                          schema_kubevirtio_api_core_v1_ArchSpecificConfiguration(ref),
@@ -348,6 +349,7 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		"kubevirt.io/api/core/v1.DataVolumeTemplateDummyStatus":                                      schema_kubevirtio_api_core_v1_DataVolumeTemplateDummyStatus(ref),
 		"kubevirt.io/api/core/v1.DataVolumeTemplateSpec":                                             schema_kubevirtio_api_core_v1_DataVolumeTemplateSpec(ref),
 		"kubevirt.io/api/core/v1.DeveloperConfiguration":                                             schema_kubevirtio_api_core_v1_DeveloperConfiguration(ref),
+		"kubevirt.io/api/core/v1.DeviceAddress":                                                      schema_kubevirtio_api_core_v1_DeviceAddress(ref),
 		"kubevirt.io/api/core/v1.Devices":                                                            schema_kubevirtio_api_core_v1_Devices(ref),
 		"kubevirt.io/api/core/v1.DisableFreePageReporting":                                           schema_kubevirtio_api_core_v1_DisableFreePageReporting(ref),
 		"kubevirt.io/api/core/v1.DisableSerialConsoleLog":                                            schema_kubevirtio_api_core_v1_DisableSerialConsoleLog(ref),
@@ -382,7 +384,10 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		"kubevirt.io/api/core/v1.HPETTimer":                                                          schema_kubevirtio_api_core_v1_HPETTimer(ref),
 		"kubevirt.io/api/core/v1.Handler":                                                            schema_kubevirtio_api_core_v1_Handler(ref),
 		"kubevirt.io/api/core/v1.HostDevice":                                                         schema_kubevirtio_api_core_v1_HostDevice(ref),
+		"kubevirt.io/api/core/v1.HostDeviceStatus":                                                   schema_kubevirtio_api_core_v1_HostDeviceStatus(ref),
 		"kubevirt.io/api/core/v1.HostDisk":                                                           schema_kubevirtio_api_core_v1_HostDisk(ref),
+		"kubevirt.io/api/core/v1.HotplugHostDevice":                                                  schema_kubevirtio_api_core_v1_HotplugHostDevice(ref),
+		"kubevirt.io/api/core/v1.HotplugHostDeviceSource":                                            schema_kubevirtio_api_core_v1_HotplugHostDeviceSource(ref),
 		"kubevirt.io/api/core/v1.HotplugVolumeSource":                                                schema_kubevirtio_api_core_v1_HotplugVolumeSource(ref),
 		"kubevirt.io/api/core/v1.HotplugVolumeStatus":                                                schema_kubevirtio_api_core_v1_HotplugVolumeStatus(ref),
 		"kubevirt.io/api/core/v1.Hugepages":                                                          schema_kubevirtio_api_core_v1_Hugepages(ref),
@@ -459,6 +464,7 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		"kubevirt.io/api/core/v1.RateLimiter":                                                        schema_kubevirtio_api_core_v1_RateLimiter(ref),
 		"kubevirt.io/api/core/v1.Realtime":                                                           schema_kubevirtio_api_core_v1_Realtime(ref),
 		"kubevirt.io/api/core/v1.ReloadableComponentConfiguration":                                   schema_kubevirtio_api_core_v1_ReloadableComponentConfiguration(ref),
+		"kubevirt.io/api/core/v1.RemoveHostDeviceOptions":                                            schema_kubevirtio_api_core_v1_RemoveHostDeviceOptions(ref),
 		"kubevirt.io/api/core/v1.RemoveVolumeOptions":                                                schema_kubevirtio_api_core_v1_RemoveVolumeOptions(ref),
 		"kubevirt.io/api/core/v1.ResourceRequirements":                                               schema_kubevirtio_api_core_v1_ResourceRequirements(ref),
 		"kubevirt.io/api/core/v1.RestartOptions":                                                     schema_kubevirtio_api_core_v1_RestartOptions(ref),
@@ -501,6 +507,7 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		"kubevirt.io/api/core/v1.VSOCKOptions":                                                       schema_kubevirtio_api_core_v1_VSOCKOptions(ref),
 		"kubevirt.io/api/core/v1.VirtualMachine":                                                     schema_kubevirtio_api_core_v1_VirtualMachine(ref),
 		"kubevirt.io/api/core/v1.VirtualMachineCondition":                                            schema_kubevirtio_api_core_v1_VirtualMachineCondition(ref),
+		"kubevirt.io/api/core/v1.VirtualMachineHostDeviceRequest":                                    schema_kubevirtio_api_core_v1_VirtualMachineHostDeviceRequest(ref),
 		"kubevirt.io/api/core/v1.VirtualMachineInstance":                                             schema_kubevirtio_api_core_v1_VirtualMachineInstance(ref),
 		"kubevirt.io/api/core/v1.VirtualMachineInstanceCondition":                                    schema_kubevirtio_api_core_v1_VirtualMachineInstanceCondition(ref),
 		"kubevirt.io/api/core/v1.VirtualMachineInstanceFileSystem":                                   schema_kubevirtio_api_core_v1_VirtualMachineInstanceFileSystem(ref),
@@ -15599,6 +15606,62 @@ func schema_kubevirtio_api_core_v1_AccessCredentialSecretSource(ref common.Refer
 	}
 }
 
+func schema_kubevirtio_api_core_v1_AddHostDeviceOptions(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "AddHostDeviceOptions is provided when dynamically hot plugging a host device",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"name": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Name represents the name that maps to both the host device that should be added",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"hostDevice": {
+						SchemaProps: spec.SchemaProps{
+							Description: "HostDevice represents the hotplug host device that will be plugged into the running VMI",
+							Ref:         ref("kubevirt.io/api/core/v1.HostDevice"),
+						},
+					},
+					"hostDeviceSource": {
+						SchemaProps: spec.SchemaProps{
+							Description: "HostDeviceSource is attached to the virt launcher and is populated with a host device of the vmi",
+							Ref:         ref("kubevirt.io/api/core/v1.HotplugHostDeviceSource"),
+						},
+					},
+					"dryRun": {
+						VendorExtensible: spec.VendorExtensible{
+							Extensions: spec.Extensions{
+								"x-kubernetes-list-type": "atomic",
+							},
+						},
+						SchemaProps: spec.SchemaProps{
+							Description: "When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: "",
+										Type:    []string{"string"},
+										Format:  "",
+									},
+								},
+							},
+						},
+					},
+				},
+				Required: []string{"name", "hostDeviceSource"},
+			},
+		},
+		Dependencies: []string{
+			"kubevirt.io/api/core/v1.HostDevice", "kubevirt.io/api/core/v1.HotplugHostDeviceSource"},
+	}
+}
+
 func schema_kubevirtio_api_core_v1_AddVolumeOptions(ref common.ReferenceCallback) common.OpenAPIDefinition {
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
@@ -16981,6 +17044,81 @@ func schema_kubevirtio_api_core_v1_DeveloperConfiguration(ref common.ReferenceCa
 	}
 }
 
+func schema_kubevirtio_api_core_v1_DeviceAddress(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"type": {
+						SchemaProps: spec.SchemaProps{
+							Default: "",
+							Type:    []string{"string"},
+							Format:  "",
+						},
+					},
+					"domain": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"bus": {
+						SchemaProps: spec.SchemaProps{
+							Default: "",
+							Type:    []string{"string"},
+							Format:  "",
+						},
+					},
+					"slot": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"function": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"controller": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"target": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"unit": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"uuid": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"device": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+				},
+				Required: []string{"type", "bus"},
+			},
+		},
+	}
+}
+
 func schema_kubevirtio_api_core_v1_Devices(ref common.ReferenceCallback) common.OpenAPIDefinition {
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
@@ -18333,10 +18471,82 @@ func schema_kubevirtio_api_core_v1_HostDevice(ref common.ReferenceCallback) comm
 							Format:      "",
 						},
 					},
+					"hotpluggable": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Hotpluggable indicates whether the host device can be hotplugged and hotunplugged.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
 				},
 				Required: []string{"name", "deviceName"},
 			},
 		},
+	}
+}
+
+func schema_kubevirtio_api_core_v1_HostDeviceStatus(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "HostDeviceStatus represents information about the status of host devices attached to the pod.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"name": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Name is the name of the host device",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"target": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Target is the target name used when adding the host device to the VM, eg: usb",
+							Ref:         ref("kubevirt.io/api/core/v1.DeviceAddress"),
+						},
+					},
+					"usb": {
+						SchemaProps: spec.SchemaProps{
+							Description: "An usb host device attach to the pod.",
+							Ref:         ref("kubevirt.io/api/core/v1.USBHostDevice"),
+						},
+					},
+					"phase": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Phase is the phase",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"reason": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Reason is a brief description of why we are in the current hotplug host device phase",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"message": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Message is a detailed message about the current hotplug host device phase",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"hotpluggable": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Hotpluggable indicates whether the device can be hotplugged and hotunplugged.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+				},
+				Required: []string{"name", "phase"},
+			},
+		},
+		Dependencies: []string{
+			"kubevirt.io/api/core/v1.DeviceAddress", "kubevirt.io/api/core/v1.USBHostDevice"},
 	}
 }
 
@@ -18383,6 +18593,77 @@ func schema_kubevirtio_api_core_v1_HostDisk(ref common.ReferenceCallback) common
 		},
 		Dependencies: []string{
 			"k8s.io/apimachinery/pkg/api/resource.Quantity"},
+	}
+}
+
+func schema_kubevirtio_api_core_v1_HotplugHostDevice(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"name": {
+						SchemaProps: spec.SchemaProps{
+							Default: "",
+							Type:    []string{"string"},
+							Format:  "",
+						},
+					},
+					"deviceName": {
+						SchemaProps: spec.SchemaProps{
+							Description: "DeviceName is the resource name of the host device exposed by a device plugin",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"tag": {
+						SchemaProps: spec.SchemaProps{
+							Description: "If specified, the virtual network interface address and its tag will be provided to the guest via config drive",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"hotpluggable": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Hotpluggable indicates whether the host device can be hotplugged and hotunplugged.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+					"usb": {
+						SchemaProps: spec.SchemaProps{
+							Description: "An usb host device attach to the pod.",
+							Ref:         ref("kubevirt.io/api/core/v1.USBHostDevice"),
+						},
+					},
+				},
+				Required: []string{"name", "deviceName"},
+			},
+		},
+		Dependencies: []string{
+			"kubevirt.io/api/core/v1.USBHostDevice"},
+	}
+}
+
+func schema_kubevirtio_api_core_v1_HotplugHostDeviceSource(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "HotplugHostDeviceSource Represents the source of a host device which are capable of being hotplugged on a live running VMI. Only one of its members may be specified.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"usb": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Whether to attach an usb host device to the vmi.",
+							Ref:         ref("kubevirt.io/api/core/v1.USBHostDevice"),
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			"kubevirt.io/api/core/v1.USBHostDevice"},
 	}
 }
 
@@ -20340,6 +20621,12 @@ func schema_kubevirtio_api_core_v1_MigrateOptions(ref common.ReferenceCallback) 
 							},
 						},
 					},
+					"targetNodeName": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
 				},
 			},
 		},
@@ -21429,6 +21716,48 @@ func schema_kubevirtio_api_core_v1_ReloadableComponentConfiguration(ref common.R
 		},
 		Dependencies: []string{
 			"kubevirt.io/api/core/v1.RESTClientConfiguration"},
+	}
+}
+
+func schema_kubevirtio_api_core_v1_RemoveHostDeviceOptions(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "RemoveHostDeviceOptions is provided when dynamically hot unplugging host device",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"name": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Name represents the name that maps to both the host device that should be removed",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"dryRun": {
+						VendorExtensible: spec.VendorExtensible{
+							Extensions: spec.Extensions{
+								"x-kubernetes-list-type": "atomic",
+							},
+						},
+						SchemaProps: spec.SchemaProps{
+							Description: "When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: "",
+										Type:    []string{"string"},
+										Format:  "",
+									},
+								},
+							},
+						},
+					},
+				},
+				Required: []string{"name"},
+			},
+		},
 	}
 }
 
@@ -22817,6 +23146,32 @@ func schema_kubevirtio_api_core_v1_VirtualMachineCondition(ref common.ReferenceC
 	}
 }
 
+func schema_kubevirtio_api_core_v1_VirtualMachineHostDeviceRequest(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"addHostDeviceOptions": {
+						SchemaProps: spec.SchemaProps{
+							Description: "AddHostDeviceOptions when set indicates a host device should be added. The details within this field specify how to add the host device",
+							Ref:         ref("kubevirt.io/api/core/v1.AddHostDeviceOptions"),
+						},
+					},
+					"removeHostDeviceOptions": {
+						SchemaProps: spec.SchemaProps{
+							Description: "RemoveHostDeviceOptions when set indicates a host device should be removed. The details within this field specify how to remove the host device",
+							Ref:         ref("kubevirt.io/api/core/v1.RemoveHostDeviceOptions"),
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			"kubevirt.io/api/core/v1.AddHostDeviceOptions", "kubevirt.io/api/core/v1.RemoveHostDeviceOptions"},
+	}
+}
+
 func schema_kubevirtio_api_core_v1_VirtualMachineInstance(ref common.ReferenceCallback) common.OpenAPIDefinition {
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
@@ -23582,6 +23937,12 @@ func schema_kubevirtio_api_core_v1_VirtualMachineInstanceMigrationSpec(ref commo
 							Description: "The name of the VMI to perform the migration on. VMI must exist in the migration objects namespace",
 							Type:        []string{"string"},
 							Format:      "",
+						},
+					},
+					"targetNodeName": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
 						},
 					},
 				},
@@ -24463,6 +24824,25 @@ func schema_kubevirtio_api_core_v1_VirtualMachineInstanceSpec(ref common.Referen
 							},
 						},
 					},
+					"hostDevices": {
+						VendorExtensible: spec.VendorExtensible{
+							Extensions: spec.Extensions{
+								"x-kubernetes-list-type": "atomic",
+							},
+						},
+						SchemaProps: spec.SchemaProps{
+							Description: "List of hostDevices that can be attached to a vm's host device.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref("kubevirt.io/api/core/v1.HotplugHostDevice"),
+									},
+								},
+							},
+						},
+					},
 					"dnsPolicy": {
 						SchemaProps: spec.SchemaProps{
 							Description: "Set DNS policy for the pod. Defaults to \"ClusterFirst\". Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.\n\nPossible enum values:\n - `\"ClusterFirst\"` indicates that the pod should use cluster DNS first unless hostNetwork is true, if it is available, then fall back on the default (as determined by kubelet) DNS settings.\n - `\"ClusterFirstWithHostNet\"` indicates that the pod should use cluster DNS first, if it is available, then fall back on the default (as determined by kubelet) DNS settings.\n - `\"Default\"` indicates that the pod should use the default (as determined by kubelet) DNS settings.\n - `\"None\"` indicates that the pod should use empty DNS settings. DNS parameters such as nameservers and search paths should be defined via DNSConfig.",
@@ -24508,7 +24888,7 @@ func schema_kubevirtio_api_core_v1_VirtualMachineInstanceSpec(ref common.Referen
 			},
 		},
 		Dependencies: []string{
-			"k8s.io/api/core/v1.Affinity", "k8s.io/api/core/v1.PodDNSConfig", "k8s.io/api/core/v1.Toleration", "k8s.io/api/core/v1.TopologySpreadConstraint", "kubevirt.io/api/core/v1.AccessCredential", "kubevirt.io/api/core/v1.DomainSpec", "kubevirt.io/api/core/v1.Network", "kubevirt.io/api/core/v1.Probe", "kubevirt.io/api/core/v1.Volume"},
+			"k8s.io/api/core/v1.Affinity", "k8s.io/api/core/v1.PodDNSConfig", "k8s.io/api/core/v1.Toleration", "k8s.io/api/core/v1.TopologySpreadConstraint", "kubevirt.io/api/core/v1.AccessCredential", "kubevirt.io/api/core/v1.DomainSpec", "kubevirt.io/api/core/v1.HotplugHostDevice", "kubevirt.io/api/core/v1.Network", "kubevirt.io/api/core/v1.Probe", "kubevirt.io/api/core/v1.Volume"},
 	}
 }
 
@@ -24582,6 +24962,25 @@ func schema_kubevirtio_api_core_v1_VirtualMachineInstanceStatus(ref common.Refer
 									SchemaProps: spec.SchemaProps{
 										Default: map[string]interface{}{},
 										Ref:     ref("kubevirt.io/api/core/v1.VirtualMachineInstanceNetworkInterface"),
+									},
+								},
+							},
+						},
+					},
+					"hostDeviceStatus": {
+						VendorExtensible: spec.VendorExtensible{
+							Extensions: spec.Extensions{
+								"x-kubernetes-list-type": "atomic",
+							},
+						},
+						SchemaProps: spec.SchemaProps{
+							Description: "HostDeviceStatus represent the details of hotplug host devices.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref("kubevirt.io/api/core/v1.HostDeviceStatus"),
 									},
 								},
 							},
@@ -24740,7 +25139,7 @@ func schema_kubevirtio_api_core_v1_VirtualMachineInstanceStatus(ref common.Refer
 			},
 		},
 		Dependencies: []string{
-			"kubevirt.io/api/core/v1.CPUTopology", "kubevirt.io/api/core/v1.KernelBootStatus", "kubevirt.io/api/core/v1.Machine", "kubevirt.io/api/core/v1.MemoryStatus", "kubevirt.io/api/core/v1.TopologyHints", "kubevirt.io/api/core/v1.VirtualMachineInstanceCondition", "kubevirt.io/api/core/v1.VirtualMachineInstanceGuestOSInfo", "kubevirt.io/api/core/v1.VirtualMachineInstanceMigrationState", "kubevirt.io/api/core/v1.VirtualMachineInstanceNetworkInterface", "kubevirt.io/api/core/v1.VirtualMachineInstancePhaseTransitionTimestamp", "kubevirt.io/api/core/v1.VolumeStatus"},
+			"kubevirt.io/api/core/v1.CPUTopology", "kubevirt.io/api/core/v1.HostDeviceStatus", "kubevirt.io/api/core/v1.KernelBootStatus", "kubevirt.io/api/core/v1.Machine", "kubevirt.io/api/core/v1.MemoryStatus", "kubevirt.io/api/core/v1.TopologyHints", "kubevirt.io/api/core/v1.VirtualMachineInstanceCondition", "kubevirt.io/api/core/v1.VirtualMachineInstanceGuestOSInfo", "kubevirt.io/api/core/v1.VirtualMachineInstanceMigrationState", "kubevirt.io/api/core/v1.VirtualMachineInstanceNetworkInterface", "kubevirt.io/api/core/v1.VirtualMachineInstancePhaseTransitionTimestamp", "kubevirt.io/api/core/v1.VolumeStatus"},
 	}
 }
 
@@ -25139,6 +25538,25 @@ func schema_kubevirtio_api_core_v1_VirtualMachineStatus(ref common.ReferenceCall
 							},
 						},
 					},
+					"hostDeviceRequests": {
+						VendorExtensible: spec.VendorExtensible{
+							Extensions: spec.Extensions{
+								"x-kubernetes-list-type": "atomic",
+							},
+						},
+						SchemaProps: spec.SchemaProps{
+							Description: "HostDeviceRequests indicates a list of host devices add or remove from the VMI template and hotplug on an active running VMI.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref("kubevirt.io/api/core/v1.VirtualMachineHostDeviceRequest"),
+									},
+								},
+							},
+						},
+					},
 					"volumeSnapshotStatuses": {
 						SchemaProps: spec.SchemaProps{
 							Description: "VolumeSnapshotStatuses indicates a list of statuses whether snapshotting is supported by each volume.",
@@ -25183,7 +25601,7 @@ func schema_kubevirtio_api_core_v1_VirtualMachineStatus(ref common.ReferenceCall
 			},
 		},
 		Dependencies: []string{
-			"kubevirt.io/api/core/v1.VirtualMachineCondition", "kubevirt.io/api/core/v1.VirtualMachineMemoryDumpRequest", "kubevirt.io/api/core/v1.VirtualMachineStartFailure", "kubevirt.io/api/core/v1.VirtualMachineStateChangeRequest", "kubevirt.io/api/core/v1.VirtualMachineVolumeRequest", "kubevirt.io/api/core/v1.VolumeSnapshotStatus"},
+			"kubevirt.io/api/core/v1.VirtualMachineCondition", "kubevirt.io/api/core/v1.VirtualMachineHostDeviceRequest", "kubevirt.io/api/core/v1.VirtualMachineMemoryDumpRequest", "kubevirt.io/api/core/v1.VirtualMachineStartFailure", "kubevirt.io/api/core/v1.VirtualMachineStateChangeRequest", "kubevirt.io/api/core/v1.VirtualMachineVolumeRequest", "kubevirt.io/api/core/v1.VolumeSnapshotStatus"},
 	}
 }
 
